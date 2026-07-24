@@ -82,6 +82,7 @@
     font-family:'Fraunces', serif; font-weight:600; color:var(--gold-bright); font-size:15px;
     letter-spacing:0.02em;
   }
+  .label-short{ display:none; }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
     padding:11px 20px; border-radius:8px;
@@ -251,14 +252,18 @@
   }
   @media(max-width:600px){
     .topbar{
-      padding:10px 14px; flex-wrap:wrap; row-gap:6px; justify-content:space-between;
+      padding:9px 10px; flex-wrap:nowrap; justify-content:space-between; gap:6px;
     }
-    .btn-ghost{ order:2; padding:8px 14px; font-size:12px; }
-    .timer-box{ order:3; flex-basis:100%; justify-content:center; font-size:11px; gap:6px; }
+    .btn-ghost{ padding:7px 11px; font-size:11px; flex:none; white-space:nowrap; }
+    .timer-box{ font-size:10px; gap:4px; white-space:nowrap; overflow:hidden; }
     .timer-box .label-full{ display:none; }
-    .timer-box .clock{ font-size:13px; }
+    .label-short{ display:inline; }
+    .timer-box .clock{ font-size:12px; }
     .video-thumb .playbtn{ width:52px; height:52px; }
     .video-thumb .playbtn svg{ width:18px; height:18px; margin-left:2px; }
+  }
+  @media(max-width:380px){
+    .label-short{ display:none; }
   }
   @media (prefers-reduced-motion: reduce){
     *{ animation:none !important; transition:none !important; }
@@ -286,7 +291,7 @@
 
 <div class="topbar">
   <div class="timer-box">
-    <span>⏳ <span class="label-full">Early access window closes in</span></span>
+    <span>⏳ <span class="label-full">Early access window closes in</span><span class="label-short">Closes in</span></span>
     <span class="clock" id="countdown">24:00:00</span>
   </div>
   <a href="#video" class="btn btn-ghost">Watch Demo</a>
@@ -386,10 +391,10 @@
       <h2>Only a limited number of people get personally guided access this week.</h2>
       <p>I answer every message myself — that means I can only onboard a handful of people at a time.</p>
       <div class="offer-stats">
-        <div class="ostat"><div class="n">50</div><div class="l">Exclusive Slots</div></div>
+        <div class="ostat"><div class="n">30</div><div class="l">Exclusive Slots</div></div>
         <div class="ostat"><div class="n">30%</div><div class="l">Flat Discount</div></div>
-        <div class="ostat"><div class="n">500+</div><div class="l">Trained</div></div>
-        <div class="ostat"><div class="n">0</div><div class="l">Experience Needed</div></div>
+        <div class="ostat"><div class="n">120+</div><div class="l">Trained</div></div>
+        <div class="ostat"><div class="n">0.0</div><div class="l">Experience Needed</div></div>
       </div>
       <a href="https://wa.me/919440822312?text=I%20want%20to%20request%20access" class="btn btn-primary btn-lg">Request Access on WhatsApp →</a>
     </div>
@@ -497,7 +502,7 @@
   </div>
 </section>
 
-<footer>© 2026 MoneyMind · All rights reserved.</footer>
+<footer>© 2026 MoneyMind_india · All rights reserved.</footer>
 
 <script>
   // Countdown — resets fresh 24h from the moment this page is opened
