@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyMind — I Earned ₹4,38,316 in 4 Months</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A121F;
+    --ink:#F4F6F9;
+    --ink-dim:#93A4BA;
+    --gold:#D4AF37;
+    --gold-bright:#F2D27A;
+    --teal:#38CFAE;
+    --line: rgba(244,246,249,0.10);
+    --shadow: 0 24px 60px -24px rgba(0,0,0,0.65);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.65;
+    overflow-x:hidden;
+    position:relative;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; }
+  a{color:inherit; text-decoration:none;}
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 24px; }
+  section{ position:relative; padding:100px 0; z-index:1; }
+  .accent{ font-family:'Instrument Serif', serif; font-style:italic; color:var(--gold-bright); }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--gold-bright); margin-bottom:20px;
+  }
+  .eyebrow::before{ content:""; width:18px; height:1.5px; background:var(--gold-bright); display:inline-block; }
+  .center{ text-align:center; }
+  .center .eyebrow{ justify-content:center; width:100%; }
+
+  /* ---------- FIXED CONTINUOUS BACKGROUND (never changes, no section bands) ---------- */
+  .bg-fixed{
+    position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+  }
+  .bg-fixed svg{
+    position:absolute; bottom:-5%; left:-10%; width:120%; height:60%; opacity:0.16;
+    animation:drift 26s ease-in-out infinite;
+  }
+  @keyframes drift{
+    0%{ transform:translateX(0); }
+    50%{ transform:translateX(-5%); }
+    100%{ transform:translateX(0); }
+  }
+  .orb{ position:absolute; border-radius:50%; filter:blur(70px); opacity:0.15; animation:float 14s ease-in-out infinite; }
+  .orb-1{ width:420px; height:420px; background:var(--gold); top:-10%; left:-8%; }
+  .orb-2{ width:380px; height:380px; background:var(--teal); bottom:-12%; right:-8%; animation-delay:-6s; }
+  .orb-3{ width:300px; height:300px; background:var(--gold-bright); top:40%; left:60%; animation-delay:-3s; }
+  @keyframes float{
+    0%,100%{ transform:translate(0,0); }
+    50%{ transform:translate(30px,-40px); }
+  }
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; background:rgba(10,18,31,0.72);
+    backdrop-filter:blur(14px); border-bottom:1px solid var(--line);
+  }
+  .brand{ font-family:'Fraunces', serif; font-weight:600; font-size:18px; letter-spacing:-0.01em; }
+  .brand span{ color:var(--gold-bright); }
+  .timer-box{
+    display:flex; align-items:center; gap:10px; font-size:12.5px; color:var(--ink-dim);
+  }
+  .timer-box .clock{
+    font-family:'Fraunces', serif; font-weight:600; color:var(--gold-bright); font-size:15px;
+    letter-spacing:0.02em;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:8px;
+    font-weight:700; font-size:13.5px;
+    border:1px solid transparent;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor:pointer; white-space:nowrap;
+  }
+  .btn-lg{ padding:16px 30px; font-size:15px; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--gold); color:#1A1305; box-shadow:0 12px 30px -10px rgba(212,175,55,0.55); }
+  .btn-primary:hover{ background:var(--gold-bright); }
+  .btn-ghost{ border-color:var(--line); color:var(--ink); background:rgba(255,255,255,0.03); }
+  .btn-ghost:hover{ border-color:var(--gold-bright); color:var(--gold-bright); }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:180px 0 90px; text-align:center; }
+  .hero h1{
+    font-size:clamp(30px, 5.2vw, 58px);
+    line-height:1.1;
+    max-width:820px;
+    margin:0 auto 24px;
+  }
+  .hero p.sub{ max-width:560px; margin:0 auto 34px; color:var(--ink-dim); font-size:17px; }
+  .scroll-cue{
+    display:inline-flex; align-items:center; gap:8px; color:var(--ink-dim);
+    font-size:13.5px; font-weight:600; cursor:pointer; border-bottom:1px dotted var(--line);
+    padding-bottom:4px;
+  }
+  .scroll-cue:hover{ color:var(--gold-bright); }
+  .scroll-cue .arrow{ display:inline-block; animation:bob 1.6s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(4px);} }
+
+  /* ---------- STEPS ---------- */
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:8px; }
+  .step .num{
+    font-family:'Instrument Serif', serif; font-style:italic; font-size:48px;
+    color:var(--gold-bright); opacity:0.85; display:block; margin-bottom:16px;
+  }
+  .step h3{ font-size:19px; margin-bottom:10px; }
+  .step p{ color:var(--ink-dim); font-size:14.5px; }
+
+  /* ---------- VIDEO ---------- */
+  #video{ scroll-margin-top:90px; }
+  .video-shell{
+    max-width:720px; margin:0 auto; border-radius:16px; overflow:hidden;
+    border:1px solid rgba(212,175,55,0.3); box-shadow:var(--shadow);
+    background:#000;
+  }
+  .video-thumb{
+    position:relative; aspect-ratio:16/9; cursor:pointer; overflow:hidden;
+  }
+  .video-thumb img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+  .video-thumb:hover img{ transform:scale(1.04); }
+  .video-thumb .playbtn{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:76px; height:76px; border-radius:50%;
+    background:rgba(212,175,55,0.92); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 40px -6px rgba(212,175,55,0.7);
+    transition:transform .2s ease;
+  }
+  .video-thumb:hover .playbtn{ transform:translate(-50%,-50%) scale(1.08); }
+  .video-thumb .playbtn svg{ width:26px; height:26px; margin-left:4px; }
+  .video-shell iframe{ width:100%; aspect-ratio:16/9; display:block; border:0; }
+  .video-caption{ max-width:640px; margin:28px auto 0; text-align:center; }
+  .video-caption h3{ font-size:20px; margin-bottom:8px; }
+  .video-caption p{ color:var(--ink-dim); font-size:14.5px; }
+
+  /* ---------- LIMITED ACCESS ---------- */
+  .offer-card{
+    max-width:640px; margin:0 auto; text-align:center;
+    border:1px solid rgba(212,175,55,0.28); border-radius:18px; padding:48px 34px;
+    background:rgba(255,255,255,0.02); box-shadow:var(--shadow);
+  }
+  .live{
+    display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700;
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:20px;
+  }
+  .live .pulse{ width:8px; height:8px; border-radius:50%; background:var(--teal); position:relative; }
+  .live .pulse::after{
+    content:""; position:absolute; inset:-6px; border-radius:50%; border:1.5px solid var(--teal);
+    animation:pulse 1.8s ease-out infinite;
+  }
+  @keyframes pulse{ 0%{ transform:scale(0.6); opacity:0.9;} 100%{ transform:scale(1.9); opacity:0; } }
+  .offer-card h2{ font-size:clamp(22px,3vw,29px); margin-bottom:14px; }
+  .offer-card p{ color:var(--ink-dim); font-size:14.5px; margin-bottom:30px; }
+
+  /* ---------- WHAT YOU GET ---------- */
+  .get-list{ max-width:680px; margin:0 auto; display:flex; flex-direction:column; gap:14px; }
+  .get-item{
+    display:flex; align-items:flex-start; gap:14px; padding:18px 20px;
+    border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,0.015);
+  }
+  .get-item .tick{
+    flex:none; width:22px; height:22px; border-radius:50%; background:rgba(56,207,174,0.16);
+    display:flex; align-items:center; justify-content:center; margin-top:2px;
+  }
+  .get-item .tick svg{ width:12px; height:12px; }
+  .get-item b{ font-size:15px; }
+  .get-item span{ color:var(--ink-dim); font-size:14px; }
+  .get-note{
+    max-width:680px; margin:26px auto 0; text-align:center; padding:16px;
+    border:1px dashed rgba(212,175,55,0.4); border-radius:10px; color:var(--gold-bright);
+    font-weight:600; font-size:14.5px;
+  }
+
+  /* ---------- WHO ---------- */
+  .who-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .wcard{ border:1px solid var(--line); border-radius:14px; padding:28px; background:rgba(255,255,255,0.015); }
+  .wcard h3{ font-size:17px; margin-bottom:10px; }
+  .wcard p{ color:var(--ink-dim); font-size:14px; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{ max-width:680px; margin:0 auto; }
+  details{ border-bottom:1px solid var(--line); padding:20px 0; }
+  summary{ cursor:pointer; font-weight:600; font-size:15.5px; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:"+"; font-size:20px; color:var(--gold-bright); font-weight:400; }
+  details[open] summary::after{ content:"–"; }
+  details p{ color:var(--ink-dim); font-size:14.5px; margin-top:12px; max-width:560px; }
+
+  /* ---------- FINAL ---------- */
+  .final{ text-align:center; padding-bottom:70px; }
+  .final h2{ font-size:clamp(24px,3.4vw,36px); max-width:520px; margin:0 auto 30px; }
+  .disclaimer{ margin-top:34px; font-size:12.5px; color:var(--ink-dim); max-width:460px; margin-left:auto; margin-right:auto; }
+  footer{ text-align:center; padding:26px 0 40px; color:var(--ink-dim); font-size:12.5px; }
+
+  @media(max-width:800px){
+    .steps, .who-grid{ grid-template-columns:1fr; }
+    section{ padding:70px 0; }
+    .hero{ padding:150px 0 60px; }
+    .topbar{ padding:12px 16px; }
+    .timer-box{ font-size:11px; }
+    .timer-box .clock{ font-size:13px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-fixed">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <polyline points="0,320 120,300 220,260 320,280 420,220 520,240 620,170 720,190 820,120 920,140 1020,80 1120,100 1200,50"
+      fill="none" stroke="#D4AF37" stroke-width="1.4" stroke-opacity="0.4"/>
+    <g fill="#F2D27A">
+      <circle cx="220" cy="260" r="3"/>
+      <circle cx="420" cy="220" r="3"/>
+      <circle cx="620" cy="170" r="3"/>
+      <circle cx="820" cy="120" r="3.5"/>
+      <circle cx="1020" cy="80" r="3.5"/>
+    </g>
+  </svg>
+</div>
+
+<div class="topbar">
+  <div class="brand">Money<span>Mind</span></div>
+  <div class="timer-box">
+    <span>⏳ Early access window closes in</span>
+    <span class="clock" id="countdown">24:00:00</span>
+  </div>
+  <a href="#video" class="btn btn-ghost">Watch Demo</a>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center; width:100%;">Real Results, Real System</span>
+    <h1>I Earned <span class="accent">₹4,38,316</span> Online in 4 Months.<br>Here's How You Can Too.</h1>
+    <p class="sub">A step-by-step digital skills system — the exact one I used, explained in plain language. No jargon, no theory, just what actually works.</p>
+    <a href="#video" class="scroll-cue">See exactly how it works <span class="arrow">↓</span></a>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap center">
+    <span class="eyebrow">The Framework</span>
+    <h2 style="font-size:clamp(24px,3.2vw,34px); margin-bottom:50px;">How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Watch the proof</h3>
+        <p>See the real numbers and the exact system behind them — no commitment, just clarity.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Request access</h3>
+        <p>Message me on WhatsApp and I'll personally walk you through the next steps.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Start your system</h3>
+        <p>Set it up once, run it consistently, and track your own results as you go.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal" id="video">
+  <div class="wrap center">
+    <span class="eyebrow">Watch First</span>
+    <h2 style="font-size:clamp(24px,3.2vw,34px); margin-bottom:40px;">Real numbers. Real system.<br>Watch this before you scroll further.</h2>
+    <div class="video-shell" id="videoShell">
+      <a class="video-thumb" href="https://youtu.be/1g9jGv7Q0bk" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/1g9jGv7Q0bk/maxresdefault.jpg" alt="Watch the proof video" loading="lazy">
+        <div class="playbtn"><svg viewBox="0 0 24 24" fill="#1A1305"><path d="M8 5v14l11-7z"/></svg></div>
+      </a>
+    </div>
+    <div class="video-caption">
+      <h3>How I Earned ₹4,38,316 in 4 Months — The Exact System</h3>
+      <p>US Marketing + Bizgurukul — step-by-step breakdown with live proof. No theory, no fake screenshots. Just real numbers and the exact system I used.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="offer-card">
+      <span class="live"><i class="pulse"></i> Limited Access — Open Now</span>
+      <h2>Only a limited number of people get personally guided access this week.</h2>
+      <p>I answer every message myself — that means I can only onboard a handful of people at a time.</p>
+      <a href="https://wa.me/919440822312?text=I%20want%20to%20request%20access" class="btn btn-primary btn-lg">Request Access on WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap center">
+    <span class="eyebrow">What You Get</span>
+    <h2 style="font-size:clamp(24px,3.2vw,34px); margin-bottom:40px;">Everything you need to get started</h2>
+    <div class="get-list" style="text-align:left;">
+      <div class="get-item">
+        <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+        <div><b>30 income skills in 30 days</b><br><span>One new skill every single day.</span></div>
+      </div>
+      <div class="get-item">
+        <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+        <div><b>Daily execution guides</b><br><span>Step by step, no fluff.</span></div>
+      </div>
+      <div class="get-item">
+        <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+        <div><b>US Marketing system</b><br><span>The exact method behind the results above.</span></div>
+      </div>
+      <div class="get-item">
+        <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+        <div><b>Personal WhatsApp guidance</b><br><span>I respond to every message myself.</span></div>
+      </div>
+      <div class="get-item">
+        <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+        <div><b>Bizgurukul discount code</b><br><span>Save 30% if you choose to enroll.</span></div>
+      </div>
+      <div class="get-item">
+        <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
+        <div><b>Real strategies that work in India</b><br><span>Tested, not theoretical.</span></div>
+      </div>
+    </div>
+    <div class="get-note">Worth ₹15,000+ elsewhere — included when you request access.</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap center">
+    <span class="eyebrow">Who This Is For</span>
+    <h2 style="font-size:clamp(24px,3.2vw,34px); margin-bottom:50px;">Built for people starting from zero</h2>
+    <div class="who-grid">
+      <div class="wcard">
+        <h3>Students & Aspirants</h3>
+        <p>Start building real digital skills without waiting for campus placements — on your own timeline.</p>
+      </div>
+      <div class="wcard">
+        <h3>Working Professionals</h3>
+        <p>Build an independent skill set alongside your job. Just 15–30 minutes a day, no career risk.</p>
+      </div>
+      <div class="wcard">
+        <h3>Creators & Entrepreneurs</h3>
+        <p>Scale your existing brand or content with a system that runs in the background, every day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap center">
+    <span class="eyebrow">Frequently Asked Questions</span>
+    <h2 style="font-size:clamp(24px,3.2vw,34px); margin-bottom:40px;">Quick answers</h2>
+    <div class="faq-list" style="text-align:left;">
+      <details open>
+        <summary>How much time does this need daily?</summary>
+        <p>Just 15–30 minutes a day once your system is set up. Most of it runs on its own after that.</p>
+      </details>
+      <details>
+        <summary>Do I need any prior experience?</summary>
+        <p>None. This is built for complete beginners — students, professionals, and creators alike.</p>
+      </details>
+      <details>
+        <summary>Is there a cost involved?</summary>
+        <p>Access to the guidance and resources is free. If you choose to enroll in the full Bizgurukul program, a discount code is included.</p>
+      </details>
+      <details>
+        <summary>How do I get started?</summary>
+        <p>Tap "Request Access" and message me on WhatsApp — I'll personally guide you through the next steps.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final reveal">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center; width:100%;">Ready When You Are</span>
+    <h2>Still on the fence? Message me directly — I reply personally, usually within a few hours.</h2>
+    <a href="https://wa.me/919440822312?text=Hi%2C%20I%20have%20a%20question" class="btn btn-primary btn-lg">Message on WhatsApp →</a>
+    <p class="disclaimer">Results depend on individual effort and consistency. Bizgurukul enrollment is optional and separately paid.</p>
+  </div>
+</section>
+
+<footer>© 2026 MoneyMind · All rights reserved.</footer>
+
+<script>
+  // Countdown — resets fresh 24h from the moment this page is opened
+  const endTime = Date.now() + 24 * 60 * 60 * 1000;
+  function updateCountdown(){
+    const diff = endTime - Date.now();
+    const el = document.getElementById('countdown');
+    if(diff <= 0){ el.textContent = "00:00:00"; return; }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    el.textContent = String(h).padStart(2,'0') + ":" + String(m).padStart(2,'0') + ":" + String(s).padStart(2,'0');
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // Fade-in on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
