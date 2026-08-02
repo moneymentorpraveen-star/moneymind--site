@@ -265,6 +265,21 @@
   @media(max-width:380px){
     .label-short{ display:none; }
   }
+  /* ---------- FLOATING WHATSAPP BUTTON ---------- */
+  .float-wa{
+    position:fixed; bottom:20px; right:20px; z-index:60;
+    width:56px; height:56px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px -6px rgba(37,211,102,0.6);
+    transition:transform .2s ease;
+  }
+  .float-wa:hover{ transform:scale(1.08); }
+  .float-wa svg{ width:28px; height:28px; }
+  @media(max-width:600px){
+    .float-wa{ width:50px; height:50px; bottom:16px; right:16px; }
+    .float-wa svg{ width:25px; height:25px; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     *{ animation:none !important; transition:none !important; }
   }
@@ -292,16 +307,16 @@
 <div class="topbar">
   <div class="timer-box">
     <span>⏳ <span class="label-full">Early access window closes in</span><span class="label-short">Closes in</span></span>
-    <span class="clock" id="countdown">24:00:00</span>
+    <span class="clock" id="countdown">30:00</span>
   </div>
-  <a href="#video" class="btn btn-ghost">Watch Demo</a>
+  <a href="#video" class="btn btn-ghost">Watch FREE Demo</a>
 </div>
 
 <section class="hero">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center; width:100%;">Real Results, Real System</span>
-    <h1>How I Built an Income System in 4 Months<br>Complete Case Study & Step-by-Step Breakdown</h1>
-    <p class="sub">A step-by-step digital skills system — the exact one I used, explained in plain language. No jargon, no theory, just what actually works.</p>
+    <h1>I Earned <span class="accent">₹4,38,316</span> Online in 4 Months.<br>Here's How You Can Too.</h1>
+    <p class="sub">A step-by-step digital skill system — the exact one I used, explained in plain language. No jargon, no theory, just what actually works.</p>
     <a href="#video" class="scroll-cue">See exactly how it works <span class="arrow">↓</span></a>
   </div>
 </section>
@@ -314,12 +329,12 @@
       <div class="step">
         <span class="num">01</span>
         <h3>Watch the proof</h3>
-        <p>See the real numbers and the exact system behind them — no commitment, just clarity.</p>
+        <p>Don't judge without knowing that exact system behind them — no commitment, just clarity.</p>
       </div>
       <div class="step">
         <span class="num">02</span>
         <h3>Request access</h3>
-        <p>Message me on WhatsApp and I'll personally walk you through the next steps.</p>
+        <p>IF ypu're really intrested just Message me on WhatsApp and I'll personally walk you through the next steps.</p>
       </div>
       <div class="step">
         <span class="num">03</span>
@@ -341,7 +356,7 @@
       </a>
     </div>
     <div class="video-caption">
-      <h3>The Complete Breakdown — Step by Step</h3>
+      <h3>How I Earned ₹4,38,316 in 4 Months — The Exact System</h3>
       <p>US Marketing + Bizgurukul — step-by-step breakdown with live proof. No theory, no fake screenshots. Just real numbers and the exact system I used.</p>
     </div>
   </div>
@@ -356,12 +371,12 @@
     <div class="tcarousel">
       <div class="tcard">
         <div class="tquote">"</div>
-        <p>A strong profit in my very first week. My mindset has completely shifted — now aiming even bigger.</p>
+        <p>₹24,000 profit in my very first week. My mindset has completely shifted — now aiming even bigger.</p>
         <div class="twho"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg> Aakash, Vizag</div>
       </div>
       <div class="tcard">
         <div class="tquote">"</div>
-        <p>A full day's profit that matched what some earn in a month as salary — made in a single day.</p>
+        <p>₹14,000 profit in a single day. What some earn in a month as salary, I made in one day.</p>
         <div class="twho"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg> Sohel, UP</div>
       </div>
       <div class="tcard">
@@ -376,7 +391,7 @@
       </div>
       <div class="tcard">
         <div class="tquote">"</div>
-        <p>A great result — and it's the guidance and support that made the real difference for me.</p>
+        <p>₹10,000 earned — and it's the guidance and support that made the real difference for me.</p>
         <div class="twho"><svg viewBox="0 0 24 24" fill="none" stroke="#38CFAE" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg> Anosh</div>
       </div>
     </div>
@@ -394,16 +409,17 @@
         <div class="ostat"><div class="n">30</div><div class="l">Exclusive Slots</div></div>
         <div class="ostat"><div class="n">30%</div><div class="l">Flat Discount</div></div>
         <div class="ostat"><div class="n">120+</div><div class="l">Trained</div></div>
-        <div class="ostat"><div class="n">0.0</div><div class="l">Experience Needed</div></div>
+        <div class="ostat"><div class="n">0.0%</div><div class="l">Experience Needed</div></div>
       </div>
-      <a href="https://wa.me/919440822312?text=Hi%20Praveen%2C%20I%20want%20to%20see%20the%20exact%20numbers" class="btn btn-primary btn-lg">Request Access on WhatsApp →</a>
+      <a href="https://wa.me/919440822312?text=I%20want%20to%20request%20access" class="btn btn-primary btn-lg">connwct with me on WhatsApp →</a>
+      <p style="margin-top:14px; font-size:12.5px; color:var(--ink-dim);">Just a conversation, no pressure to buy.</p>
     </div>
   </div>
 </section>
 
 <section class="reveal">
   <div class="wrap center">
-    <span class="eyebrow">What You Get</span>
+    <span class="eyebrow">What You'll Get FREE AFTER ENROLL</span>
     <h2 style="font-size:clamp(24px,3.2vw,34px); margin-bottom:40px;">Everything you need to get started</h2>
     <div class="get-list" style="text-align:left;">
       <div class="get-item">
@@ -453,11 +469,11 @@
     <h2 style="font-size:clamp(24px,3.2vw,34px); margin-bottom:50px;">Built for people starting from zero</h2>
     <div class="who-grid">
       <div class="wcard">
-        <h3>Students & Aspirants</h3>
+        <h3>Students & Aspirants & Everyone 18+</h3>
         <p>Start building real digital skills without waiting for campus placements — on your own timeline.</p>
       </div>
       <div class="wcard">
-        <h3>Working Professionals</h3>
+        <h3>Working Professionals & House wifes</h3>
         <p>Build an independent skill set alongside your job. Just 15–30 minutes a day, no career risk.</p>
       </div>
       <div class="wcard">
@@ -475,11 +491,11 @@
     <div class="faq-list" style="text-align:left;">
       <details open>
         <summary>How much time does this need daily?</summary>
-        <p>Just 15–30 minutes a day once your system is set up. Most of it runs on its own after that.</p>
+        <p>Just 1 to 2 hours a day once your system is set up. Most of it runs on its own after that.</p>
       </details>
       <details>
         <summary>Do I need any prior experience?</summary>
-        <p>None. This is built for complete beginners — students, professionals, and creators alike.</p>
+        <p>Absolutely No, This is built for complete beginners — students, professionals, and creators alike. you can learn from scratch</p>
       </details>
       <details>
         <summary>Is there a cost involved?</summary>
@@ -496,13 +512,17 @@
 <section class="final reveal">
   <div class="wrap">
     <span class="eyebrow" style="justify-content:center; width:100%;">Ready When You Are</span>
-    <h2>Still on the fence? Message me directly — I reply personally, usually within a few hours.</h2>
+    <h2>Still confusion? Message me directly — I reply personally, usually within a few hours.</h2>
     <a href="https://wa.me/919440822312?text=Hi%2C%20I%20have%20a%20question" class="btn btn-primary btn-lg">Message on WhatsApp →</a>
     <p class="disclaimer">Results depend on individual effort and consistency. Bizgurukul enrollment is optional and separately paid.</p>
   </div>
 </section>
 
 <footer>© 2026 MoneyMind · All rights reserved.</footer>
+
+<a href="https://wa.me/919440822312?text=Hi%2C%20I%20have%20a%20question" class="float-wa" aria-label="Message on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.005c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23M8.53 7.33c-.16 0-.43.06-.66.31c-.22.25-.87.85-.87 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.25 3.73c.6.25 1.06.4 1.42.51c.6.19 1.14.16 1.57.1c.48-.07 1.46-.6 1.67-1.18c.21-.58.21-1.07.15-1.18c-.07-.1-.23-.16-.48-.28c-.25-.12-1.47-.72-1.7-.81c-.23-.08-.39-.12-.56.13c-.16.25-.64.81-.78.97c-.14.17-.29.19-.53.07c-.25-.12-1.05-.39-2-1.23c-.74-.66-1.24-1.47-1.39-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.16-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43c-.14 0-.31-.01-.47-.01Z"/></svg>
+</a>
 
 <script>
   // Countdown — resets fresh 24h from the moment this page is opened
